@@ -32,7 +32,7 @@ var Schema = new Schema({
 },{timestamps    : true,versionKey:false});
 
 Schema.path('name').validate(async (name) => {
-    const nameCount = await mongoose.models.user.countDocuments({ name })
+    const nameCount = await mongoose.models.company.countDocuments({ name })
     return !nameCount
 },'companyName already Exists');
 
