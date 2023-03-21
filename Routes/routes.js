@@ -11,7 +11,7 @@ const users = require('../Model/Models');
 const countermodel =require('../Model/Models');
 router.post('/add',(req,res) => {
     var user = new users();
-    user.companyName = req.body.companyName;
+    user.name = req.body.name;
     user.Date = req.body.Date;
     user.Purpose = req.body.Purpose;
     user.BookClosure.push({
