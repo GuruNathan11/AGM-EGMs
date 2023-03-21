@@ -3,7 +3,7 @@ var DateOnly = require('mongoose-dateonly')(mongoose);
 var { Schema } = mongoose;
 
 var Schema = new Schema({
-    companyName:{
+    name:{
         required : true,
         type     : String
     },
@@ -31,8 +31,8 @@ var Schema = new Schema({
     
 },{timestamps    : true,versionKey:false});
 
-Schema.path('companyName').validate(async (companyName) => {
-    const nameCount = await mongoose.models.user.countDocuments({ companyName })
+Schema.path('name').validate(async (name) => {
+    const nameCount = await mongoose.models.user.countDocuments({ name })
     return !nameCount
 },'companyName already Exists');
 
