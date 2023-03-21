@@ -44,7 +44,7 @@ exports.Dao_view = function (req,callback){
 exports.Dao_update = function (req,callback) {
     users.findById({_id:req.params.user_id}, function(err,user){
         if(err) callback.send(err);
-        user.companyName = req.body.companyName;
+        user.name = req.body.name;
         user.Date = req.body.Date;
         user.Purpose = req.body.Purpose;
         user.BookClosure[0].start = req.body.BookClosure[0].start
