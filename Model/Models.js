@@ -3,14 +3,14 @@ var DateOnly = require('mongoose-dateonly')(mongoose);
 var { Schema } = mongoose;
 
 var Schema = new Schema({
-    name:{
+    companyName:{
         required : true,
         type     : String
     },
-    Date:{
-        type     : Date
+    date:{
+        type     : String
     },
-    Purpose:{
+    purpose:{
         type : String,
         required : true
     },
@@ -24,15 +24,15 @@ var Schema = new Schema({
             required : true 
         }
  } ],
- Agenda:{
+ agenda:{
     type : String,
             required : true
  }
     
 },{timestamps    : true,versionKey:false});
 
-Schema.path('name').validate(async (name) => {
-    const nameCount = await mongoose.models.company.countDocuments({ name })
+Schema.path('companyName').validate(async (companyName) => {
+    const nameCount = await mongoose.models.company.countDocuments({ companyName })
     return !nameCount
 },'companyName already Exists');
 
