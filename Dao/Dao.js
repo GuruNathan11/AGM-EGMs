@@ -44,12 +44,12 @@ exports.Dao_view = function (req,callback){
 exports.Dao_update = function (req,callback) {
     users.findById({_id:req.params.user_id}, function(err,user){
         if(err) callback.send(err);
-        user.name = req.body.name;
-        user.Date = req.body.Date;
-        user.Purpose = req.body.Purpose;
-        user.BookClosure[0].start = req.body.BookClosure[0].start
-        user.BookClosure[0].end = req.body.BookClosure[0].end
-        user.Agenda = req.body.Agenda;
+        user.companyName = req.body.companyName;
+    user.date = req.body.date;
+    user.purpose = req.body.purpose;
+    user.bookClosureStart = req.body.bookClosureStart;
+    user.bookClosureEnd = req.body.bookClosureEnd;
+    user.Agenda = req.body.agenda;
 
         user.save(function(err){
             if(err) callback.json(err);
