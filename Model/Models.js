@@ -14,16 +14,14 @@ var Schema = new Schema({
         type : String,
         required : true
     },
-    BookClosure:[{
-        start:{
-            type : DateOnly,
+     bookClosureStart:{
+            type : String,
             required : true
-        },
-        end:{
-            type : DateOnly,
+   },
+    bookClosureEnd:{
+            type : String,
             required : true 
-        }
- } ],
+        },
  agenda:{
     type : String,
             required : true
