@@ -11,15 +11,12 @@ const users = require('../Model/Models');
 const countermodel =require('../Model/Models');
 router.post('/add',(req,res) => {
     var user = new users();
-    user.name = req.body.name;
-    user.Date = req.body.Date;
-    user.Purpose = req.body.Purpose;
-    user.BookClosure.push({
-        start: req.body.BookClosure[0].start,
-        end: req.body.BookClosure[0].end
-    });
-    
-    user.Agenda = req.body.Agenda;
+    user.companyName = req.body.companyName;
+    user.date = req.body.date;
+    user.purpose = req.body.purpose;
+    user.bookClosureStart = req.body.bookClosureStart;
+    user.bookClosureEnd = req.body.bookClosureEnd;
+    user.Agenda = req.body.agenda;
   
     user.save((err,users) => {
         if(err) {
@@ -28,10 +25,6 @@ router.post('/add',(req,res) => {
             });
         }
         else {
-            const data = users.toObject({ versionKey: false, getters: true });
-            for(let i=0; i<data.BookClosure.length; i++) {
-                delete data.BookClosure[0]._id;
-            }
             return res.status(201).send({
                 message : "AGM/EGMs added successfully",
                 data : user
