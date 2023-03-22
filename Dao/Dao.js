@@ -49,7 +49,7 @@ exports.Dao_update = function (req,callback) {
     user.purpose = req.body.purpose;
     user.bookClosureStart = req.body.bookClosureStart;
     user.bookClosureEnd = req.body.bookClosureEnd;
-    user.Agenda = req.body.agenda;
+    user.agenda = req.body.agenda;
 
         user.save(function(err){
             if(err) callback.json(err);
