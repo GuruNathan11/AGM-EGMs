@@ -12,19 +12,19 @@ var Schema = new Schema({
     },
     purpose:{
         type : String,
-        required : true
+        required : false
     },
      bookClosureStart:{
             type : String,
-            required : true
+            required : false
    },
     bookClosureEnd:{
             type : String,
-            required : true 
+            required : false 
         },
  agenda:{
     type : String,
-            required : true
+            required : false
  }
     
 },{timestamps    : true,versionKey:false});
