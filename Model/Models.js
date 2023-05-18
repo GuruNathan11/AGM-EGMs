@@ -29,10 +29,10 @@ var Schema = new Schema({
     
 },{timestamps    : true,versionKey:false});
 
-Schema.path('companyName').validate(async (companyName) => {
-    const nameCount = await mongoose.models.company.countDocuments({ companyName })
-    return !nameCount
-},'companyName already Exists');
+// Schema.path('companyName').validate(async (companyName) => {
+//     const nameCount = await mongoose.models.company.countDocuments({ companyName })
+//     return !nameCount
+// },'companyName already Exists');
 
 
 var users = module.exports = mongoose.model('company',Schema);
